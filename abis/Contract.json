@@ -1,0 +1,1982 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      { "name": "initialOwner", "type": "address", "internalType": "address" },
+      {
+        "name": "escrow_",
+        "type": "address",
+        "internalType": "contract Escrow"
+      },
+      {
+        "name": "feeRecipient",
+        "type": "address",
+        "internalType": "address payable"
+      },
+      { "name": "feeBasisPoints", "type": "uint16", "internalType": "uint16" }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "acceptOwnership",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "cancelERC721ForERC20",
+    "inputs": [
+      {
+        "name": "swap",
+        "type": "tuple",
+        "internalType": "struct ERC721ForERC20Swap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct Parties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address"
+              },
+              { "name": "buyer", "type": "address", "internalType": "address" }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple",
+            "internalType": "struct ERC721TransferLib.ERC721Token",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              { "name": "id", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct ERC20Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" },
+              {
+                "name": "currency",
+                "type": "address",
+                "internalType": "contract IERC20"
+              }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      { "name": "salt", "type": "bytes32", "internalType": "bytes32" }
+    ],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "cancelERC721ForNative",
+    "inputs": [
+      {
+        "name": "swap",
+        "type": "tuple",
+        "internalType": "struct ERC721ForNativeSwap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct PayableParties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address payable"
+              },
+              {
+                "name": "buyer",
+                "type": "address",
+                "internalType": "address payable"
+              }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple",
+            "internalType": "struct ERC721TransferLib.ERC721Token",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              { "name": "id", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      { "name": "salt", "type": "bytes32", "internalType": "bytes32" }
+    ],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "cancelMultiERC721ForERC20",
+    "inputs": [
+      {
+        "name": "swap",
+        "type": "tuple",
+        "internalType": "struct MultiERC721ForERC20Swap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct Parties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address"
+              },
+              { "name": "buyer", "type": "address", "internalType": "address" }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple[]",
+            "internalType": "struct ERC721TransferLib.MultiERC721Token[]",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              {
+                "name": "ids",
+                "type": "uint256[]",
+                "internalType": "uint256[]"
+              }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct ERC20Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" },
+              {
+                "name": "currency",
+                "type": "address",
+                "internalType": "contract IERC20"
+              }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      { "name": "salt", "type": "bytes32", "internalType": "bytes32" }
+    ],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "cancelMultiERC721ForNative",
+    "inputs": [
+      {
+        "name": "swap",
+        "type": "tuple",
+        "internalType": "struct MultiERC721ForNativeSwap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct PayableParties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address payable"
+              },
+              {
+                "name": "buyer",
+                "type": "address",
+                "internalType": "address payable"
+              }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple[]",
+            "internalType": "struct ERC721TransferLib.MultiERC721Token[]",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              {
+                "name": "ids",
+                "type": "uint256[]",
+                "internalType": "uint256[]"
+              }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      { "name": "salt", "type": "bytes32", "internalType": "bytes32" }
+    ],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "escrow",
+    "inputs": [],
+    "outputs": [
+      { "name": "", "type": "address", "internalType": "contract Escrow" }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "etMessage",
+    "inputs": [],
+    "outputs": [{ "name": "m", "type": "bytes32", "internalType": "Message" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "feeConfig",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "recipient",
+        "type": "address",
+        "internalType": "address payable"
+      },
+      { "name": "basisPoints", "type": "uint16", "internalType": "uint16" }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "fillERC721ForERC20",
+    "inputs": [
+      {
+        "name": "swap",
+        "type": "tuple",
+        "internalType": "struct ERC721ForERC20Swap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct Parties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address"
+              },
+              { "name": "buyer", "type": "address", "internalType": "address" }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple",
+            "internalType": "struct ERC721TransferLib.ERC721Token",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              { "name": "id", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct ERC20Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" },
+              {
+                "name": "currency",
+                "type": "address",
+                "internalType": "contract IERC20"
+              }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      { "name": "salt", "type": "bytes32", "internalType": "bytes32" }
+    ],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "fillERC721ForNative",
+    "inputs": [
+      {
+        "name": "swap",
+        "type": "tuple",
+        "internalType": "struct ERC721ForNativeSwap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct PayableParties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address payable"
+              },
+              {
+                "name": "buyer",
+                "type": "address",
+                "internalType": "address payable"
+              }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple",
+            "internalType": "struct ERC721TransferLib.ERC721Token",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              { "name": "id", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      { "name": "salt", "type": "bytes32", "internalType": "bytes32" }
+    ],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "fillMultiERC721ForERC20",
+    "inputs": [
+      {
+        "name": "swap",
+        "type": "tuple",
+        "internalType": "struct MultiERC721ForERC20Swap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct Parties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address"
+              },
+              { "name": "buyer", "type": "address", "internalType": "address" }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple[]",
+            "internalType": "struct ERC721TransferLib.MultiERC721Token[]",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              {
+                "name": "ids",
+                "type": "uint256[]",
+                "internalType": "uint256[]"
+              }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct ERC20Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" },
+              {
+                "name": "currency",
+                "type": "address",
+                "internalType": "contract IERC20"
+              }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      { "name": "salt", "type": "bytes32", "internalType": "bytes32" }
+    ],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "fillMultiERC721ForNative",
+    "inputs": [
+      {
+        "name": "swap",
+        "type": "tuple",
+        "internalType": "struct MultiERC721ForNativeSwap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct PayableParties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address payable"
+              },
+              {
+                "name": "buyer",
+                "type": "address",
+                "internalType": "address payable"
+              }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple[]",
+            "internalType": "struct ERC721TransferLib.MultiERC721Token[]",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              {
+                "name": "ids",
+                "type": "uint256[]",
+                "internalType": "uint256[]"
+              }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      { "name": "salt", "type": "bytes32", "internalType": "bytes32" }
+    ],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "owner",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "pendingOwner",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "proposeERC721ForERC20",
+    "inputs": [
+      {
+        "name": "swap",
+        "type": "tuple",
+        "internalType": "struct ERC721ForERC20Swap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct Parties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address"
+              },
+              { "name": "buyer", "type": "address", "internalType": "address" }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple",
+            "internalType": "struct ERC721TransferLib.ERC721Token",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              { "name": "id", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct ERC20Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" },
+              {
+                "name": "currency",
+                "type": "address",
+                "internalType": "contract IERC20"
+              }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      }
+    ],
+    "outputs": [
+      { "name": "", "type": "bytes32", "internalType": "bytes32" },
+      { "name": "", "type": "address", "internalType": "address" }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "proposeERC721ForNative",
+    "inputs": [
+      {
+        "name": "swap",
+        "type": "tuple",
+        "internalType": "struct ERC721ForNativeSwap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct PayableParties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address payable"
+              },
+              {
+                "name": "buyer",
+                "type": "address",
+                "internalType": "address payable"
+              }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple",
+            "internalType": "struct ERC721TransferLib.ERC721Token",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              { "name": "id", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      }
+    ],
+    "outputs": [
+      { "name": "", "type": "bytes32", "internalType": "bytes32" },
+      { "name": "", "type": "address", "internalType": "address" }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "proposeMultiERC721ForERC20",
+    "inputs": [
+      {
+        "name": "swap",
+        "type": "tuple",
+        "internalType": "struct MultiERC721ForERC20Swap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct Parties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address"
+              },
+              { "name": "buyer", "type": "address", "internalType": "address" }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple[]",
+            "internalType": "struct ERC721TransferLib.MultiERC721Token[]",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              {
+                "name": "ids",
+                "type": "uint256[]",
+                "internalType": "uint256[]"
+              }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct ERC20Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" },
+              {
+                "name": "currency",
+                "type": "address",
+                "internalType": "contract IERC20"
+              }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      }
+    ],
+    "outputs": [
+      { "name": "", "type": "bytes32", "internalType": "bytes32" },
+      { "name": "", "type": "address", "internalType": "address" }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "proposeMultiERC721ForNative",
+    "inputs": [
+      {
+        "name": "swap",
+        "type": "tuple",
+        "internalType": "struct MultiERC721ForNativeSwap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct PayableParties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address payable"
+              },
+              {
+                "name": "buyer",
+                "type": "address",
+                "internalType": "address payable"
+              }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple[]",
+            "internalType": "struct ERC721TransferLib.MultiERC721Token[]",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              {
+                "name": "ids",
+                "type": "uint256[]",
+                "internalType": "uint256[]"
+              }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      }
+    ],
+    "outputs": [
+      { "name": "", "type": "bytes32", "internalType": "bytes32" },
+      { "name": "", "type": "address", "internalType": "address" }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "renounceOwnership",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "setPlatformFee",
+    "inputs": [
+      {
+        "name": "recipient",
+        "type": "address",
+        "internalType": "address payable"
+      },
+      { "name": "basisPoints", "type": "uint16", "internalType": "uint16" }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "swapperOfERC721ForERC20",
+    "inputs": [
+      {
+        "name": "swap",
+        "type": "tuple",
+        "internalType": "struct ERC721ForERC20Swap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct Parties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address"
+              },
+              { "name": "buyer", "type": "address", "internalType": "address" }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple",
+            "internalType": "struct ERC721TransferLib.ERC721Token",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              { "name": "id", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct ERC20Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" },
+              {
+                "name": "currency",
+                "type": "address",
+                "internalType": "contract IERC20"
+              }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      { "name": "salt", "type": "bytes32", "internalType": "bytes32" }
+    ],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "swapperOfERC721ForNative",
+    "inputs": [
+      {
+        "name": "swap",
+        "type": "tuple",
+        "internalType": "struct ERC721ForNativeSwap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct PayableParties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address payable"
+              },
+              {
+                "name": "buyer",
+                "type": "address",
+                "internalType": "address payable"
+              }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple",
+            "internalType": "struct ERC721TransferLib.ERC721Token",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              { "name": "id", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      { "name": "salt", "type": "bytes32", "internalType": "bytes32" }
+    ],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "swapperOfMultiERC721ForERC20",
+    "inputs": [
+      {
+        "name": "swap",
+        "type": "tuple",
+        "internalType": "struct MultiERC721ForERC20Swap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct Parties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address"
+              },
+              { "name": "buyer", "type": "address", "internalType": "address" }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple[]",
+            "internalType": "struct ERC721TransferLib.MultiERC721Token[]",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              {
+                "name": "ids",
+                "type": "uint256[]",
+                "internalType": "uint256[]"
+              }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct ERC20Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" },
+              {
+                "name": "currency",
+                "type": "address",
+                "internalType": "contract IERC20"
+              }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      { "name": "salt", "type": "bytes32", "internalType": "bytes32" }
+    ],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "swapperOfMultiERC721ForNative",
+    "inputs": [
+      {
+        "name": "swap",
+        "type": "tuple",
+        "internalType": "struct MultiERC721ForNativeSwap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct PayableParties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address payable"
+              },
+              {
+                "name": "buyer",
+                "type": "address",
+                "internalType": "address payable"
+              }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple[]",
+            "internalType": "struct ERC721TransferLib.MultiERC721Token[]",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              {
+                "name": "ids",
+                "type": "uint256[]",
+                "internalType": "uint256[]"
+              }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      { "name": "salt", "type": "bytes32", "internalType": "bytes32" }
+    ],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "transferOwnership",
+    "inputs": [
+      { "name": "newOwner", "type": "address", "internalType": "address" }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "event",
+    "name": "Cancelled",
+    "inputs": [
+      {
+        "name": "swapper",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "ERC721ForERC20Proposal",
+    "inputs": [
+      {
+        "name": "swapper",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "seller",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "buyer",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "",
+        "type": "tuple",
+        "indexed": false,
+        "internalType": "struct ERC721ForERC20Swap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct Parties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address"
+              },
+              { "name": "buyer", "type": "address", "internalType": "address" }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple",
+            "internalType": "struct ERC721TransferLib.ERC721Token",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              { "name": "id", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct ERC20Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" },
+              {
+                "name": "currency",
+                "type": "address",
+                "internalType": "contract IERC20"
+              }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      {
+        "name": "salt",
+        "type": "bytes32",
+        "indexed": false,
+        "internalType": "bytes32"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "ERC721ForNativeProposal",
+    "inputs": [
+      {
+        "name": "swapper",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "seller",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "buyer",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "",
+        "type": "tuple",
+        "indexed": false,
+        "internalType": "struct ERC721ForNativeSwap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct PayableParties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address payable"
+              },
+              {
+                "name": "buyer",
+                "type": "address",
+                "internalType": "address payable"
+              }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple",
+            "internalType": "struct ERC721TransferLib.ERC721Token",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              { "name": "id", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      {
+        "name": "salt",
+        "type": "bytes32",
+        "indexed": false,
+        "internalType": "bytes32"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "Filled",
+    "inputs": [
+      {
+        "name": "swapper",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "MultiERC721ForERC20Proposal",
+    "inputs": [
+      {
+        "name": "swapper",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "seller",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "buyer",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "",
+        "type": "tuple",
+        "indexed": false,
+        "internalType": "struct MultiERC721ForERC20Swap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct Parties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address"
+              },
+              { "name": "buyer", "type": "address", "internalType": "address" }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple[]",
+            "internalType": "struct ERC721TransferLib.MultiERC721Token[]",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              {
+                "name": "ids",
+                "type": "uint256[]",
+                "internalType": "uint256[]"
+              }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct ERC20Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" },
+              {
+                "name": "currency",
+                "type": "address",
+                "internalType": "contract IERC20"
+              }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      {
+        "name": "salt",
+        "type": "bytes32",
+        "indexed": false,
+        "internalType": "bytes32"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "MultiERC721ForNativeProposal",
+    "inputs": [
+      {
+        "name": "swapper",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "seller",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "buyer",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "",
+        "type": "tuple",
+        "indexed": false,
+        "internalType": "struct MultiERC721ForNativeSwap",
+        "components": [
+          {
+            "name": "parties",
+            "type": "tuple",
+            "internalType": "struct PayableParties",
+            "components": [
+              {
+                "name": "seller",
+                "type": "address",
+                "internalType": "address payable"
+              },
+              {
+                "name": "buyer",
+                "type": "address",
+                "internalType": "address payable"
+              }
+            ]
+          },
+          {
+            "name": "offer",
+            "type": "tuple[]",
+            "internalType": "struct ERC721TransferLib.MultiERC721Token[]",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "contract IERC721"
+              },
+              {
+                "name": "ids",
+                "type": "uint256[]",
+                "internalType": "uint256[]"
+              }
+            ]
+          },
+          {
+            "name": "consideration",
+            "type": "tuple",
+            "internalType": "struct Consideration",
+            "components": [
+              {
+                "name": "thirdParty",
+                "type": "tuple[]",
+                "internalType": "struct Disbursement[]",
+                "components": [
+                  {
+                    "name": "to",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "maxPlatformFee",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              { "name": "total", "type": "uint256", "internalType": "uint256" }
+            ]
+          },
+          {
+            "name": "validUntilTime",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      {
+        "name": "salt",
+        "type": "bytes32",
+        "indexed": false,
+        "internalType": "bytes32"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "OwnershipTransferStarted",
+    "inputs": [
+      {
+        "name": "previousOwner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "newOwner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "OwnershipTransferred",
+    "inputs": [
+      {
+        "name": "previousOwner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "newOwner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "PlatformFeeChanged",
+    "inputs": [
+      {
+        "name": "recipient",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "basisPoints",
+        "type": "uint16",
+        "indexed": false,
+        "internalType": "uint16"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "error",
+    "name": "InvalidEscrowContract",
+    "inputs": [{ "name": "", "type": "address", "internalType": "address" }]
+  },
+  { "type": "error", "name": "OnlyPartyCanCancel", "inputs": [] },
+  {
+    "type": "error",
+    "name": "OwnableInvalidOwner",
+    "inputs": [
+      { "name": "owner", "type": "address", "internalType": "address" }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "OwnableUnauthorizedAccount",
+    "inputs": [
+      { "name": "account", "type": "address", "internalType": "address" }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "PredictedAddressMismatch",
+    "inputs": [
+      { "name": "deployed", "type": "address", "internalType": "address" },
+      { "name": "predicted", "type": "address", "internalType": "address" }
+    ]
+  }
+]

@@ -1,0 +1,50 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Contract
+    network: sepolia
+    source:
+      address: "0xcba3312d06898c8d4786e9120ce0cee1d29c60e4"
+      abi: Contract
+      startBlock: 6575465
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Cancelled
+        - ERC721ForERC20Proposal
+        - ERC721ForNativeProposal
+        - Filled
+        - MultiERC721ForERC20Proposal
+        - MultiERC721ForNativeProposal
+        - OwnershipTransferStarted
+        - OwnershipTransferred
+        - PlatformFeeChanged
+      abis:
+        - name: Contract
+          file: ./abis/Contract.json
+      eventHandlers:
+        - event: Cancelled(address)
+          handler: handleCancelled
+        - event: ERC721ForERC20Proposal(indexed address,indexed address,indexed address,((address,address),(address,uint256),((address,uint256)[],uint256,uint256,address),uint256),bytes32)
+          handler: handleERC721ForERC20Proposal
+        - event: ERC721ForNativeProposal(indexed address,indexed address,indexed address,((address,address),(address,uint256),((address,uint256)[],uint256,uint256),uint256),bytes32)
+          handler: handleERC721ForNativeProposal
+        - event: Filled(address)
+          handler: handleFilled
+        - event: MultiERC721ForERC20Proposal(indexed address,indexed address,indexed address,((address,address),(address,uint256[])[],((address,uint256)[],uint256,uint256,address),uint256),bytes32)
+          handler: handleMultiERC721ForERC20Proposal
+        - event: MultiERC721ForNativeProposal(indexed address,indexed address,indexed address,((address,address),(address,uint256[])[],((address,uint256)[],uint256,uint256),uint256),bytes32)
+          handler: handleMultiERC721ForNativeProposal
+        - event: OwnershipTransferStarted(indexed address,indexed address)
+          handler: handleOwnershipTransferStarted
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: PlatformFeeChanged(indexed address,uint16)
+          handler: handlePlatformFeeChanged
+      file: ./src/contract.ts

@@ -1,0 +1,118 @@
+type Cancelled @entity(immutable: true) {
+  id: Bytes!
+  swapper: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ERC721ForERC20Proposal @entity(immutable: true) {
+  id: Bytes!
+  swapper: Bytes! # address
+  seller: Bytes! # address
+  buyer: Bytes! # address
+  param3_parties_seller: Bytes! # address
+  param3_parties_buyer: Bytes! # address
+  param3_offer_addr: Bytes! # address
+  param3_offer_id: BigInt! # uint256
+  param3_consideration_thirdParty: [Bytes!]! # tuple[]
+  param3_consideration_maxPlatformFee: BigInt! # uint256
+  param3_consideration_total: BigInt! # uint256
+  param3_consideration_currency: Bytes! # address
+  param3_validUntilTime: BigInt! # uint256
+  salt: Bytes! # bytes32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ERC721ForNativeProposal @entity(immutable: true) {
+  id: Bytes!
+  swapper: Bytes! # address
+  seller: Bytes! # address
+  buyer: Bytes! # address
+  param3_parties_seller: Bytes! # address
+  param3_parties_buyer: Bytes! # address
+  param3_offer_addr: Bytes! # address
+  param3_offer_id: BigInt! # uint256
+  param3_consideration_thirdParty: [Bytes!]! # tuple[]
+  param3_consideration_maxPlatformFee: BigInt! # uint256
+  param3_consideration_total: BigInt! # uint256
+  param3_validUntilTime: BigInt! # uint256
+  salt: Bytes! # bytes32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Filled @entity(immutable: true) {
+  id: Bytes!
+  swapper: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MultiERC721ForERC20Proposal @entity(immutable: true) {
+  id: Bytes!
+  swapper: Bytes! # address
+  seller: Bytes! # address
+  buyer: Bytes! # address
+  param3_parties_seller: Bytes! # address
+  param3_parties_buyer: Bytes! # address
+  param3_offer: [Bytes!]! # tuple[]
+  param3_consideration_thirdParty: [Bytes!]! # tuple[]
+  param3_consideration_maxPlatformFee: BigInt! # uint256
+  param3_consideration_total: BigInt! # uint256
+  param3_consideration_currency: Bytes! # address
+  param3_validUntilTime: BigInt! # uint256
+  salt: Bytes! # bytes32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MultiERC721ForNativeProposal @entity(immutable: true) {
+  id: Bytes!
+  swapper: Bytes! # address
+  seller: Bytes! # address
+  buyer: Bytes! # address
+  param3_parties_seller: Bytes! # address
+  param3_parties_buyer: Bytes! # address
+  param3_offer: [Bytes!]! # tuple[]
+  param3_consideration_thirdParty: [Bytes!]! # tuple[]
+  param3_consideration_maxPlatformFee: BigInt! # uint256
+  param3_consideration_total: BigInt! # uint256
+  param3_validUntilTime: BigInt! # uint256
+  salt: Bytes! # bytes32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferStarted @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PlatformFeeChanged @entity(immutable: true) {
+  id: Bytes!
+  recipient: Bytes! # address
+  basisPoints: Int! # uint16
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
