@@ -1,6 +1,14 @@
+type Filled @entity(immutable: true) {
+  id: Bytes!
+  swapper: String! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
 type Cancelled @entity(immutable: true) {
   id: Bytes!
-  swapper: Bytes! # address
+  swapper: String! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -8,14 +16,14 @@ type Cancelled @entity(immutable: true) {
 
 type ERC721ForERC20Proposal @entity(immutable: true) {
   id: Bytes!
-  swapper: Bytes! # address
-  seller: Bytes! # address
-  buyer: Bytes! # address
+  swapper: String! # address
+  seller: String! # address
+  buyer: String! # address
   param3_parties_seller: Bytes! # address
   param3_parties_buyer: Bytes! # address
   param3_offer_addr: Bytes! # address
   param3_offer_id: BigInt! # uint256
-  param3_consideration_thirdParty: [Bytes!]! # tuple[]
+  param3_consideration_thirdParty: [ThirdParty!] # tuple[]
   param3_consideration_maxPlatformFee: BigInt! # uint256
   param3_consideration_total: BigInt! # uint256
   param3_consideration_currency: Bytes! # address
@@ -28,14 +36,14 @@ type ERC721ForERC20Proposal @entity(immutable: true) {
 
 type ERC721ForNativeProposal @entity(immutable: true) {
   id: Bytes!
-  swapper: Bytes! # address
-  seller: Bytes! # address
-  buyer: Bytes! # address
+  swapper: String! # address
+  seller: String! # address
+  buyer: String! # address
   param3_parties_seller: Bytes! # address
   param3_parties_buyer: Bytes! # address
   param3_offer_addr: Bytes! # address
   param3_offer_id: BigInt! # uint256
-  param3_consideration_thirdParty: [Bytes!]! # tuple[]
+  param3_consideration_thirdParty: [ThirdParty!] # tuple[]
   param3_consideration_maxPlatformFee: BigInt! # uint256
   param3_consideration_total: BigInt! # uint256
   param3_validUntilTime: BigInt! # uint256
@@ -45,23 +53,34 @@ type ERC721ForNativeProposal @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type Filled @entity(immutable: true) {
-  id: Bytes!
-  swapper: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+type Debug @entity {
+  id: ID!
+  message: String!
+  value: String!
+  blockNumber: String!
+}
+
+type ThirdParty @entity {
+  id: ID!
+  to: Bytes!
+  amount: BigInt!
+}
+
+type MultiERC721Token @entity {
+  id: ID!
+  addr: String!
+  ids: [BigInt!]!
 }
 
 type MultiERC721ForERC20Proposal @entity(immutable: true) {
   id: Bytes!
-  swapper: Bytes! # address
-  seller: Bytes! # address
-  buyer: Bytes! # address
+  swapper: String! # address
+  seller: String! # address
+  buyer: String! # address
   param3_parties_seller: Bytes! # address
   param3_parties_buyer: Bytes! # address
-  param3_offer: [Bytes!]! # tuple[]
-  param3_consideration_thirdParty: [Bytes!]! # tuple[]
+  param3_offer: [MultiERC721Token!]! # tuple[]
+  param3_consideration_thirdParty: [ThirdParty!] # tuple[]
   param3_consideration_maxPlatformFee: BigInt! # uint256
   param3_consideration_total: BigInt! # uint256
   param3_consideration_currency: Bytes! # address
@@ -74,13 +93,13 @@ type MultiERC721ForERC20Proposal @entity(immutable: true) {
 
 type MultiERC721ForNativeProposal @entity(immutable: true) {
   id: Bytes!
-  swapper: Bytes! # address
-  seller: Bytes! # address
-  buyer: Bytes! # address
+  swapper: String! # address
+  seller: String! # address
+  buyer: String! # address
   param3_parties_seller: Bytes! # address
   param3_parties_buyer: Bytes! # address
-  param3_offer: [Bytes!]! # tuple[]
-  param3_consideration_thirdParty: [Bytes!]! # tuple[]
+  param3_offer: [MultiERC721Token!]! # tuple[]
+  param3_consideration_thirdParty: [ThirdParty!] # tuple[]
   param3_consideration_maxPlatformFee: BigInt! # uint256
   param3_consideration_total: BigInt! # uint256
   param3_validUntilTime: BigInt! # uint256
